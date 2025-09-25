@@ -9,7 +9,7 @@ import { LoginUserDto } from './dto/login-user.dto';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
-import { envs } from 'config/envs';
+import { envs } from 'src/config/envs';
 
 @Injectable()
 export class AuthService extends PrismaClient implements OnModuleInit {
@@ -122,7 +122,6 @@ export class AuthService extends PrismaClient implements OnModuleInit {
           });
         }
       }
-
       throw new RpcException({ status: 500, message: 'Internal server error' });
     }
   }
